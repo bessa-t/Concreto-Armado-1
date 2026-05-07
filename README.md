@@ -11,10 +11,24 @@ Este repositório contém uma ferramenta modular em Python desenvolvida para aut
 
 ## 📁 Estrutura do Repositório
 
-*   `calculos/`: Motor principal com as rotinas de flexão, cisalhamento e propriedades de materiais.
-*   `anexos/`: Dados externos para consulta de bitolas comerciais.
+*   `calculos/`: Motor principal com materiais, seções, armaduras, unidades e verificação à flexão.
+*   `dados/`: Entradas tabulares do projeto, como `vigas.csv`.
+*   `memorial/`: Funções auxiliares para transformar resultados em tabelas do memorial.
+*   `anexos/`: Dados externos e documentos auxiliares.
 *   `visualizacao/`: Scripts para geração de gráficos e figuras das seções transversais.
 *   `notebooks/`: Ambiente interativo (Jupyter) para execução dos cálculos e resolução de casos práticos.
+*   `testes/`: Testes automatizados das rotinas de cálculo.
+
+## Fluxo recomendado para flexão
+
+1. Edite `dados/vigas.csv` com as dimensões, momentos característicos e dados construtivos das vigas.
+2. Execute `notebooks/02_flexao_vigas.ipynb` para gerar a tabela-resumo.
+3. Use `calculos/flexao.py` como fonte única das equações; evite duplicar fórmulas dentro do notebook.
+4. Valide alterações com:
+
+```bash
+python -m unittest discover -s testes
+```
 
 ## 🛠️ Tecnologias Utilizadas
 
